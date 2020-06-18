@@ -39,6 +39,11 @@ app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec, false, { docEx
  *         description: Password is wrong
  *         schema:
  *            $ref: '#/definitions/responseError'
+ *
+ *       '404':
+ *         description: Wrong URL
+ *         schema:
+ *            $ref: '#/definitions/responseError'
  */
 app.get("/user/:email/:password", async (req, res) => {
     const { email, password } = req.params;
@@ -69,25 +74,7 @@ app.get("/user/:email/:password", async (req, res) => {
             user
         });
 });
-/**
- * @swagger
- * /:
- *   get:
- *     tags:
- *       - Bad URL
- *     summary: Bad URL
- *     description: 'Wrong URL'
- *     operationId: getSystemData
- *     consumes:
- *       - application/json
- *     produces:
- *       - application/json
- *     responses:
- *       '404':
- *         description: Wrong URL
- *         schema:
- *            $ref: '#/definitions/responseError'
- */
+
 app.use("/", async (req, res) => {
     res.status(404).send({
         "status": "FAILURE",

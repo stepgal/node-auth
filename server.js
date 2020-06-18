@@ -55,14 +55,14 @@ app.get("/user/:email/:password", async (req, res) => {
             });
     }
     if (user.password !== password) {
-        return res.json(
+        return res.status(400).json(
             {
                 "status": "FAILURE",
                 "message": "Wrong Password"
             });
     }
 
-    res.json(
+    res.status(200).json(
         {
             "status": "OK",
             "message": "EXISTING USER",

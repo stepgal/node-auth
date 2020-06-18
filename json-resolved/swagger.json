@@ -30,9 +30,9 @@
     "/user/:email/:password" : {
       "get" : {
         "tags" : [ "developers" ],
-        "summary" : "searches inventory",
-        "description" : "By passing in the appropriate options, you can search for\navailable inventory in the system\n",
-        "operationId" : "searchInventory",
+        "summary" : "User Authentication API",
+        "description" : "User Authentication API",
+        "operationId" : "User Authentication API",
         "parameters" : [ {
           "name" : "email",
           "in" : "query",
@@ -63,7 +63,7 @@
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/Responce"
+                    "$ref" : "#/components/schemas/Response"
                   }
                 }
               }
@@ -78,7 +78,7 @@
   },
   "components" : {
     "schemas" : {
-      "Responce" : {
+      "Response" : {
         "required" : [ "message", "status" ],
         "type" : "object",
         "properties" : {

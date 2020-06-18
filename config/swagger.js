@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const swaggerJSDoc = require("swagger-jsdoc");
 const definitions = require("../schemas/definitions");
 const SWAGGER = require("./");

@@ -4,8 +4,10 @@ const path = require("path");
 require("dns");
 require("dnscache")({ "enable": true, "ttl": 300, "cachesize": 1000 });
 require("dotenv").config({ path: path.resolve(__dirname, ".env") });
+
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./config/swagger");
+
 const { getUserInfo, setUserInfo } = require("./mongoServer");
 
 const app = express();

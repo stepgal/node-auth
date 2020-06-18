@@ -74,8 +74,8 @@ app.get("/user/:email/:password", async (req, res) => {
  * /:
  *   get:
  *     tags:
- *       - Authentication
- *     summary: Authenticate user
+ *       - Bad URL
+ *     summary: Bad URL
  *     description: 'Wrong URL'
  *     operationId: getSystemData
  *     consumes:
@@ -84,7 +84,7 @@ app.get("/user/:email/:password", async (req, res) => {
  *       - application/json
  *     responses:
  *       '404':
- *         description: Password is wrong
+ *         description: Wrong URL
  *         schema:
  *            $ref: '#/definitions/responseError'
  */

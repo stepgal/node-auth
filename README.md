@@ -1,4 +1,4 @@
-#node-auth API
+# Authentication API
 
 ## Getting Started
 

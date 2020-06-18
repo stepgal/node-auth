@@ -1,0 +1,119 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "User Authentication API",
+    "description" : "User Authentication API",
+    "contact" : {
+      "email" : "step.gal.2020@gmail.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "https://virtserver.swaggerhub.com/shop2020/node-auth/1.0.0",
+    "description" : "SwaggerHub API Auto Mocking"
+  }, {
+    "url" : "http://ec2-18-222-219-162.us-east-2.compute.amazonaws.com:3001",
+    "description" : "SwaggerHub API Auto Mocking"
+  } ],
+  "tags" : [ {
+    "name" : "admins",
+    "description" : "Secured Admin-only calls"
+  }, {
+    "name" : "developers",
+    "description" : "Operations available to regular developers"
+  } ],
+  "paths" : {
+    "/user/:email/:password" : {
+      "get" : {
+        "tags" : [ "developers" ],
+        "summary" : "searches inventory",
+        "description" : "By passing in the appropriate options, you can search for\navailable inventory in the system\n",
+        "operationId" : "searchInventory",
+        "parameters" : [ {
+          "name" : "email",
+          "in" : "query",
+          "description" : "Email address",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "password",
+          "in" : "query",
+          "description" : "Password",
+          "required" : true,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "minimum" : 6,
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search results matching criteria",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Responce"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request: format - GET http://domain:port/user/{email}/{password}"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Responce" : {
+        "required" : [ "message", "status" ],
+        "type" : "object",
+        "properties" : {
+          "status" : {
+            "type" : "string",
+            "example" : "OK"
+          },
+          "message" : {
+            "type" : "string",
+            "example" : "New User"
+          },
+          "user" : {
+            "$ref" : "#/components/schemas/User"
+          }
+        }
+      },
+      "User" : {
+        "required" : [ "email", "id", "password" ],
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "example" : "5eeb76db8775b9261eafa320"
+          },
+          "email" : {
+            "type" : "string",
+            "format" : "url",
+            "example" : "user@domain.com"
+          },
+          "password" : {
+            "type" : "string",
+            "example" : "password"
+          }
+        }
+      }
+    }
+  }
+}

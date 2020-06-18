@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+        "status": {
+            "type": "string",
+            "examples": [
+                "OK"
+            ]
+        },
+        "message": {
+            "type": "string",
+            "examples": [
+                "NEW USER / EXISTING USER"
+            ]
+        },
+        "user": {
+            "type" : "object",
+            "$ref" : "#/definitions/user"
+        }
+    },
+    "required": [ "status", "message" ]
+}

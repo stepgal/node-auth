@@ -1,11 +1,11 @@
-// SG
 const express = require("express");
 const morgan = require("morgan");
 const path = require("path");
 require("dns");
 require("dnscache")({ "enable": true, "ttl": 300, "cachesize": 1000 });
 require("dotenv").config({ path: path.resolve(__dirname, ".env") });
-
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpec = require("./config/swagger");
 const { getUserInfo, setUserInfo } = require("./mongoServer");
 
 const app = express();
@@ -14,6 +14,32 @@ if (process.env.NODE_ENV === "DEVELOPMENT") {
     app.use(morgan("dev"));
 }
 
+app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec, false, { docExpansion: "none" }));
+
+/**
+ * @swagger
+ * /user/{email/{password}:
+ *   get:
+ *     tags:
+ *       - Authentication
+ *     summary: Authenticate user
+ *     description: 'Login user if not exist, otherwise - Sign up'
+ *     operationId: getSystemData
+ *     consumes:
+ *       - application/json
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       '200':
+ *         description: Successful operation
+ *         schema:
+ *            $ref: '#/definitions/response'
+ *
+ *       '400':
+ *         description: Password is wrong
+ *         schema:
+ *            $ref: '#/definitions/responseError'
+ */
 app.get("/user/:email/:password", async (req, res) => {
     const { email, password } = req.params;
     if (!email) return res.status(400).send();
@@ -43,10 +69,29 @@ app.get("/user/:email/:password", async (req, res) => {
             user
         });
 });
-
+/**
+ * @swagger
+ * /:
+ *   get:
+ *     tags:
+ *       - Authentication
+ *     summary: Authenticate user
+ *     description: 'Wrong URL'
+ *     operationId: getSystemData
+ *     consumes:
+ *       - application/json
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       '404':
+ *         description: Password is wrong
+ *         schema:
+ *            $ref: '#/definitions/responseError'
+ */
 app.use("/", async (req, res) => {
     res.status(404).send({
-        "message": "Bad request: format - GET http://localhost/user/{email}/{password}"
+        "status": "FAILURE",
+        "message": "Bad request: format - GET http://url:port/user/{email}/{password}"
     });
 });
 

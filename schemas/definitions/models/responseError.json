@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "status": {
+            "type": "string",
+            "examples": [
+                "FAILURE"
+            ]
+        },
+        "message": {
+            "type": "string",
+            "examples": [
+                "Wrong Password / Bad request: format - GET http://url:port/user/{email}/{password}"
+            ]
+        }
+    },
+    "required": [ "status", "message" ]
+}

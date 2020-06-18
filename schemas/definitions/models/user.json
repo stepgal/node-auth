@@ -1,0 +1,24 @@
+{
+    "type": "object",
+    "properties": {
+        "_id": {
+            "type": "string",
+            "examples": [
+                "5eeaa70c8775b9261eafa31a"
+            ]
+        },
+        "email": {
+            "type": "string",
+            "examples": [
+                "email@domain.com"
+            ]
+        },
+        "password": {
+            "type": "string",
+            "examples": [
+                "password"
+            ]
+        }
+    },
+    "required": [ "_id", "email", "password" ]
+}

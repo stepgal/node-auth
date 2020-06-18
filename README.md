@@ -4,7 +4,7 @@
 
 ### Documentation
 
-Documentation will be served at `/swagger`. It is suggested to check it if you want to execute any request since it contains a **Try Out** option, which is much more comfortable than using other tools such as Postman.
+Documentation will be served at `/swagger` [API Docs](http://ec2-18-222-219-162.us-east-2.compute.amazonaws.com:3001/swagger). It is suggested to check it if you want to execute any request since it contains a **Try Out** option, which is much more comfortable than using other tools such as Postman.
 
 ### Installing node
 

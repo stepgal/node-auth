@@ -37,7 +37,7 @@ app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec, false, { docEx
  *         schema:
  *            $ref: '#/definitions/response'
  *
- *       '400':
+ *       '200':
  *         description: Password is wrong
  *         schema:
  *            $ref: '#/definitions/responseError'

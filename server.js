@@ -37,11 +37,6 @@ app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec, false, { docEx
  *         schema:
  *            $ref: '#/definitions/response'
  *
- *       '200':
- *         description: Password is wrong
- *         schema:
- *            $ref: '#/definitions/responseError'
- *
  *       '404':
  *         description: Wrong URL
  *         schema:
@@ -64,7 +59,7 @@ app.get("/user/:email/:password", async (req, res) => {
     if (user.password !== password) {
         return res.status(200).json(
             {
-                "status": "FAILURE",
+                "status": "OK",
                 "message": "Wrong Password"
             });
     }

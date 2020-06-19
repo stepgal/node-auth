@@ -2,21 +2,20 @@
 
 ## Technical Specifications
 
-###Summary
+**Summary**
 
 Authentication API allows us to register and store user data in the database.
 
-[<img src="https://raw.githubusercontent.com/stepgal/web/master/img/Auth Algorithm Diagram.jpg" align="center"
-width="600"
-    hspace="10" vspace="10">](https://raw.githubusercontent.com/stepgal/web/master/img/Auth Algorithm Diagram.jpg)
+[<img src="https://raw.githubusercontent.com/stepgal/web/master/img/AuthAlgorithmDiagram.png" align="center" width="800" hspace="10" vspace="10">](https://raw.githubusercontent.com/stepgal/web/master/img/AuthAlgorithmDiagram.png)
 
-###Specifications
 
-####Language: Java Script (use NodeJS)
+**Specifications**
 
-####API Documentation: Swagger
+**Language**: Java Script (use NodeJS)
 
-####Database: mongoDB
+**API Documentation**: Swagger
+
+**Database**: mongoDB
 
     HOST: mongodb://13.59.96.104:27017/auth
     Table Name: users
@@ -24,10 +23,10 @@ width="600"
         email: String
         password: String
 
-####Request: /user/{email/{password}
+**Request**: /user/{email/{password}
     example: http://127.0.0.1:3001/user/test@hot.com/mypassword
 
-####Response: JSON
+**Response**: JSON
 
     Status Code: 200
     {

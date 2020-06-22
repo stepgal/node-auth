@@ -42,7 +42,7 @@ app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec, false, { docEx
  *         schema:
  *            $ref: '#/definitions/responseError'
  */
-app.get("/user/:email/:password", async (req, res) => {
+app.use("/user/:email/:password", async (req, res) => {
     const { email, password } = req.params;
     if (!email) return res.status(400).send();
 
@@ -80,3 +80,5 @@ app.use("/", async (req, res) => {
 });
 
 app.listen(process.env.SERVER_PORT || 3001);
+
+module.exports = app;

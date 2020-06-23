@@ -2,9 +2,8 @@ sudo: required
 
 services:
   - docker
-  - xvfb
+  - mongodb
 before_install:
-  - echo $HOST_IP_ADDRESS
   - docker build -f dockerfile.dev -t sgaloyan/node-auth_test .
 
 script:
@@ -14,7 +13,7 @@ deploy:
   # deploy master to production
   # /sbin/ip route|awk '/default/ { print $3 }'
   - provider: script
-    script: $HOST_IP_ADDRESS
+    script: /sbin/ip route|awk '/default/ { print $3 }'
     on:
       branch: master
 

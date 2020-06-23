@@ -15,6 +15,6 @@ deploy:
   secret_access_key: $SECRET_ACCESS_KEY
   region: us-east-2
   app: "node-auth"
-  env: "NodeAuth-env"
+  env: "NodeAuth-env-1"
   bucket_name: "elasticbeanstalk-us-east-2-299932691470"
   on: master

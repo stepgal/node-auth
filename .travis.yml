@@ -13,7 +13,7 @@ deploy:
   provider: elasticbeanstalk
   access_key_id: $ACCESS_KEY
   secret_access_key:
-  secure: $SECRET_ACCESS_KEY
+    secure: $SECRET_ACCESS_KEY
   region: us-east-2
   app: "node-auth"
   env: "NodeAuth-env"

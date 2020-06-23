@@ -1,0 +1,21 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -f dockerfile.dev -t sgaloyan/node-auth_test .
+
+script:
+  - docker run sgaloyan/node-auth_test
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $ACCESS_KEY
+  secret_access_key:
+    secure: $SECRET_ACCESS_KEY
+  region: us-east-2
+  app: "node-auth"
+  env: "NodeAuth-env"
+  bucket_name: "elasticbeanstalk-us-east-2-299932691470"
+  on: master

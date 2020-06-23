@@ -12,16 +12,9 @@ script:
 
 deploy:
   # deploy master to production
+  # /sbin/ip route|awk '/default/ { print $3 }'
   - provider: script
     script: $HOST_IP_ADDRESS
     on:
       branch: master
- - provider: elasticbeanstalk
-    access_key_id: $ACCESS_KEY
-    secret_access_key:
-    secure: $SECRET_ACCESS_KEY
-    region: us-east-2
-    app: "node-auth"
-    env: "NodeAuth-env"
-    bucket_name: "elasticbeanstalk-us-east-2-299932691470"
-    on: master
+

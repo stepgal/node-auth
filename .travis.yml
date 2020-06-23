@@ -18,3 +18,7 @@ deploy:
   env: "NodeAuth-env-1"
   bucket_name: "elasticbeanstalk-us-east-2-299932691470"
   on: master
+
+after_success:
+  - docker build -f dockerfile -t sgaloyan/node_auth .
+  - docker run sgaloyan/node_auth

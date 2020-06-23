@@ -20,5 +20,6 @@ deploy:
   on: master
 
 after_success:
+  - docker stop container sgaloyan/node_auth_test
   - docker build -f dockerfile -t sgaloyan/node_auth .
   - docker run sgaloyan/node_auth

@@ -10,12 +10,12 @@ script:
   - docker run sgaloyan/node_auth_test
 
 deploy:
- - provider: elasticbeanstalk
-    access_key_id: $ACCESS_KEY
-    secret_access_key:
-    secure: $SECRET_ACCESS_KEY
-    region: us-east-2
-    app: "node-auth"
-    env: "NodeAuth-env"
-    bucket_name: "elasticbeanstalk-us-east-2-299932691470"
-    on: master
+  provider: elasticbeanstalk
+  access_key_id: $ACCESS_KEY
+  secret_access_key:
+  secure: $SECRET_ACCESS_KEY
+  region: us-east-2
+  app: "node-auth"
+  env: "NodeAuth-env"
+  bucket_name: "elasticbeanstalk-us-east-2-299932691470"
+  on: master

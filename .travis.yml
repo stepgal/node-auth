@@ -4,7 +4,7 @@ services:
   - docker
 
 before_install:
-  - docker build -f dockerfile -t sgaloyan/node_auth .
+  - docker build -f Dockerfile -t sgaloyan/node_auth .
 
 script:
   - docker run sgaloyan/node_auth

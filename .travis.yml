@@ -4,10 +4,10 @@ services:
   - docker
 
 before_install:
-  - docker build -f dockerfile.dev -t sgaloyan/node_auth_test .
+  - docker build -f dockerfile -t sgaloyan/node_auth .
 
 script:
-  - docker run sgaloyan/node_auth_test
+  - docker run sgaloyan/node_auth
 
 deploy:
   provider: elasticbeanstalk
@@ -18,8 +18,3 @@ deploy:
   env: "NodeAuth-env-1"
   bucket_name: "elasticbeanstalk-us-east-2-299932691470"
   on: master
-
-after_success:
-  - docker stop container sgaloyan/node_auth_test
-  - docker build -f dockerfile -t sgaloyan/node_auth .
-  - docker run sgaloyan/node_auth

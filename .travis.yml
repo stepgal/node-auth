@@ -4,10 +4,10 @@ services:
   - docker
   - mongodb
 before_install:
-  - docker build -f dockerfile.dev -t sgaloyan/node-auth_test .
+  - docker build -f dockerfile.dev -t sgaloyan/node_auth_test .
 
 script:
-  - docker run sgaloyan/node-auth_test
+  - docker run sgaloyan/node_auth_test
 
 deploy:
  - provider: elasticbeanstalk

@@ -4,10 +4,10 @@ services:
   - docker
 
 before_install:
-  - docker build -f Dockerfile -t sgaloyan/node_auth .
+  - docker build -f dockerfile.dev -t sgaloyan/node_auth_dev .
 
 script:
-  - docker run sgaloyan/node_auth
+  - docker run sgaloyan/node_auth_dev
 
 deploy:
   provider: elasticbeanstalk

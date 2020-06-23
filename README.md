@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/stepgal/node-auth.svg?branch=master)](https://travis-ci.com/stepgal/node-auth)
+
 # Authentication API
 
 ## Technical Specifications

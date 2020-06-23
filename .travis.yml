@@ -2,7 +2,7 @@ sudo: required
 
 services:
   - docker
-  - mongodb
+
 before_install:
   - docker build -f dockerfile.dev -t sgaloyan/node_auth_test .
 
@@ -11,7 +11,8 @@ script:
 
 deploy:
   provider: elasticbeanstalk
-  access_key_id: $ACCESS_KEY
+  access_key_id:
+    secure: $ACCESS_KEY
   secret_access_key:
     secure: $SECRET_ACCESS_KEY
   region: us-east-2

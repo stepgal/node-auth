@@ -2,7 +2,7 @@ sudo: required
 
 services:
   - docker
-
+  - xvfb
 before_install:
   - docker build -f dockerfile.dev -t sgaloyan/node-auth_test .
 

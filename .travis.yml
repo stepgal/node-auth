@@ -9,6 +9,11 @@ before_install:
 script:
   - docker run sgaloyan/node_auth_dev
 
+after_success:
+  - docker stop container sgaloyan/node_auth_dev
+  - docker build -f Dockerfile -t sgaloyan/node-auth .
+  - docker run sgaloyan/node-auth
+
 deploy:
   provider: elasticbeanstalk
   access_key_id: $ACCESS_KEY
@@ -19,6 +24,3 @@ deploy:
   bucket_name: "s3-node-auth"
   on: master
 
-after_deploy:
-  - docker build -f Dockerfile -t sgaloyan/node-auth .
-  - docker run sgaloyan/node-auth

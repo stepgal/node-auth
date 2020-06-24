@@ -11,8 +11,6 @@ script:
 
 after_success:
   - docker stop container sgaloyan/node_auth_dev
-#  - docker build -f Dockerfile -t sgaloyan/node-auth .
-#  - docker run sgaloyan/node-auth
 
 deploy:
   provider: elasticbeanstalk

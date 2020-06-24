@@ -1,5 +1,5 @@
 FROM node:latest
-RUN sudo mkdir -p "/home/ec2-user/app"
+RUN mkdir -p "/home/ec2-user/app"
 WORKDIR "/home/ec2-user/app"
 COPY .env.example .env
 COPY package.json ./

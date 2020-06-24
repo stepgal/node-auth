@@ -14,7 +14,11 @@ deploy:
   access_key_id: $ACCESS_KEY
   secret_access_key: $SECRET_ACCESS_KEY
   region: us-east-2
-  app: "node-auth-nodejs"
-  env: "NodeAuthNodejs-env"
+  app: "node-auth"
+  env: "NodeAuth-env"
   bucket_name: "s3-node-auth"
   on: master
+
+after_deploy:
+  - docker build -f Dockerfile -t sgaloyan/node-auth .
+  - docker run sgaloyan/node-auth

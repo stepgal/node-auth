@@ -16,5 +16,5 @@ deploy:
   region: us-east-2
   app: "node-auth-nodejs"
   env: "NodeAuthNodejs-env"
-  bucket_name: "elasticbeanstalk-us-east-2-299932691470"
+  bucket_name: "s3-node-auth"
   on: master

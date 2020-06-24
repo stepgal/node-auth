@@ -79,6 +79,6 @@ app.use("/", async (req, res) => {
     });
 });
 
-app.listen(process.env.SERVER_PORT || 80);
+app.listen(process.env.SERVER_PORT || 3001);
 
 module.exports = app;

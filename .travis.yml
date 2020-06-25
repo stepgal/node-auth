@@ -18,7 +18,7 @@ deploy:
   secret_access_key: $SECRET_ACCESS_KEY
   region: us-east-2
   app: "node-auth-docker"
-  env: "NodeAuthDocker-env"
+  env: "NodeAuthDocker-env-1"
   bucket_name: "s3-node-auth-docker"
   on: master
 

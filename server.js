@@ -20,7 +20,7 @@ app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec, false, { docEx
 
 /**
  * @swagger
- * /user/{email/{password}:
+ * /user/{email}/{password}:
  *   get:
  *     tags:
  *       - Authentication

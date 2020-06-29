@@ -6,13 +6,13 @@ const server = require("./server");
 
 describe("GET /user/test@test.com/password", () => {
     before(function (done) {
-        setTimeout(done, 3000);
+        setTimeout(done, 1000);
         server.on("appStarted", () => {
             done();
         });
     });
     it("it should return status code - 200", (done) => {
-        setTimeout(done, 3000);
+        //setTimeout(done, 3000);
         chai.request(server)
             .get("/user/test@test.com/password")
             .end((err, res) => {
@@ -21,7 +21,7 @@ describe("GET /user/test@test.com/password", () => {
             });
     });
     it("it should response status OK", (done) => {
-        setTimeout(done, 3000);
+        //setTimeout(done, 3000);
         chai.request(server)
             .get("/user/test@test.com/password")
             .end((err, res) => {
@@ -30,3 +30,14 @@ describe("GET /user/test@test.com/password", () => {
             });
     });
 });
+
+// describe("should GET /user/test@test.com/password status(200)", function () {
+//     it("should return 200", function (done) {
+//         setTimeout(done, 1000);
+//         server.get("/user/test@test.com/password", function (err, res, body) {
+//             expect(res.statusCode).to.equal(200);
+//             expect(res.body.status).to.equal("OK");
+//             done();
+//         });
+//     });
+// });

@@ -1,17 +1,30 @@
-const chai =require("chai");
-const chaiHttp =require("chai-http");
+const chai = require("chai");
+const chaiHttp = require("chai-http");
 chai.use(chaiHttp);
-
+const expect = chai.expect;
 const server = require("./server");
 
-describe('should GET /user/test@test.com/password status(200)', function() {
-    it('should return 200', function (done) {
-        //this.timeout(10000);
-        setTimeout(done, 1000);
-        server.get('/user/test@test.com/password', function (err, res, body){
-            expect(res.statusCode).to.equal(200);
-            expect(res.body.status).to.equal('OK');
+describe("GET /user/test@test.com/password", () => {
+    before(function (done) {
+        setTimeout(done, 500);
+        server.on("appStarted", () => {
             done();
         });
+    });
+    it("it should return status code - 200", (done) => {
+        chai.request(server)
+            .get("/user/test@test.com/password")
+            .end((err, res) => {
+                expect(res.statusCode).to.equal(200);
+                done();
+            });
+    });
+    it("it should response status OK", (done) => {
+        chai.request(server)
+            .get("/user/test@test.com/password")
+            .end((err, res) => {
+                expect(res.body.status).to.equal("OK1");
+                done();
+            });
     });
 });

@@ -90,6 +90,9 @@ app.use("/", async (req, res) => {
     });
 });
 
-app.listen(process.env.SERVER_PORT || 3001);
+app.listen(process.env.SERVER_PORT || 3001, () => {
+    console.log('App has started');
+    app.emit("appStarted");
+});
 
 module.exports = app;

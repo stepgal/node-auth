@@ -4,9 +4,13 @@ chai.use(chaiHttp);
 const expect = chai.expect;
 const server = require("./server");
 
+const publicIp = require("public-ip");
 describe("GET /user/test@test.com/password", () => {
     before(function (done) {
         setTimeout(done, 1000);
+        publicIp.v4().then(ip => {
+            console.log("your public ip address", ip);
+        });
         server.on("appStarted", () => {
             done();
         });

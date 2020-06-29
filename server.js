@@ -31,6 +31,17 @@ app.use("/swagger", swaggerUi.serve, swaggerUi.setup(swaggerSpec, false, { docEx
  *       - application/json
  *     produces:
  *       - application/json
+ *     parameters:
+ *       - name: email
+ *         in: path
+ *         description: Email
+ *         required: true
+ *         type: string
+ *       - name: password
+ *         in: path
+ *         description: Password
+ *         required: true
+ *         type: string
  *     responses:
  *       '200':
  *         description: Successful operation

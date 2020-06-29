@@ -29,7 +29,7 @@ describe("GET /user/test@test.com/password", () => {
         chai.request(server)
             .get("/user/test@test.com/password")
             .end((err, res) => {
-                expect(res.body.status).to.equal("OK1");
+                expect(res.body.status).to.equal("OK");
                 done();
             });
     });

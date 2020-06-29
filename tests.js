@@ -6,7 +6,7 @@ const server = require("./server");
 
 describe("GET /user/test@test.com/password", () => {
     before(function (done) {
-        setTimeout(done, 500);
+        setTimeout(done, 1500);
         server.on("appStarted", () => {
             done();
         });

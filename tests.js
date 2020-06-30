@@ -8,9 +8,9 @@ const publicIp = require("public-ip");
 describe("GET /user/test@test.com/password", () => {
     before(function (done) {
         setTimeout(done, 1000);
-        publicIp.v4().then(ip => {
-            console.log("your public ip address", ip);
-        });
+        // publicIp.v4().then(ip => {
+        //     console.log("your public ip address", ip);
+        // });
         server.on("appStarted", () => {
             done();
         });
@@ -35,13 +35,3 @@ describe("GET /user/test@test.com/password", () => {
     });
 });
 
-// describe("should GET /user/test@test.com/password status(200)", function () {
-//     it("should return 200", function (done) {
-//         setTimeout(done, 1000);
-//         server.get("/user/test@test.com/password", function (err, res, body) {
-//             expect(res.statusCode).to.equal(200);
-//             expect(res.body.status).to.equal("OK");
-//             done();
-//         });
-//     });
-// });
